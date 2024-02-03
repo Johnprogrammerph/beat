@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heartbeat</title>
+    <style>
+        body {
+            background-color: rgb(180, 115, 241);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            margin-top: 20px;
+        }
+
+        h2 {
+            font-size: 30px;
+        }
+
+        #heartImage {
+            width: 200px;
+            height: auto;
+            transition: transform 0.2s ease-in-out;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>HAPPY</h1>
+    <img id="heartImage" src="draw.png" onclick="showPopup('learnMorePopup')">
+    <h2>HEART DAY</h2>
+
+    <script>
+        var isBeating = false;
+        var heartImage = document.getElementById('heartImage');
+
+        function beatHeart() {
+            if (isBeating) {
+                heartImage.style.transform = 'scale(1)';
+            } else {
+                heartImage.style.transform = 'scale(1.2)';
+            }
+
+            isBeating = !isBeating;
+            setTimeout(beatHeart, 100);
+        }
+
+        beatHeart();
+
+        function showPopup() {
+            alert("My Heart can't stop Beating!!");
+        }
+    </script>
+</body>
+</html>
